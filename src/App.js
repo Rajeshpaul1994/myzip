@@ -7,17 +7,17 @@ import sadface from './images/sad-face-emoji.gif';
 function App() {
   const [length_file_array , setlength_file_array] = useState(0);
   const [showLoader, setShowloader] = useState(false);
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState([]);
   const [downloadBtnTxt, setdownloadBtnTxt ] = React.useState('Zip Now');
   const [downloadBtnDisabled, setDownloadBtnDisabled] = React.useState(false);
-  
+  const [selectedFileList, setSelectedFileList] = useState(false);
   const files = [];
   const ListFileArr =[];
   const Open = (id) => { 
     document.getElementById(id).click();
   }
   const handleFolderInput = (e) => {
-    if(selectedFile==null){
+    if(selectedFile===[]){
         
         
         const fileList = e.dataTransfer ? e.dataTransfer.files : e.target.files ;
@@ -43,7 +43,7 @@ function App() {
         console.log(files);
         setSelectedFile(files);
         setlength_file_array(files.length);
-        
+        setSelectedFileList(true);
         // console.log('selectedFile:')
         // console.log(selectedFile);
         // console.log('ListFileArr:')
@@ -71,17 +71,19 @@ function App() {
         }
         console.log(selectedFile);
         setlength_file_array(selectedFile.length);
+        setSelectedFileList(true)
     }
 }
 const resetAll = () =>{
-  setdownloadBtnTxt('Make it zip and download it!');
+  setdownloadBtnTxt('Zip Now');
   setShowloader(false);
   setDownloadBtnDisabled(false);
   setlength_file_array(0);
-  setSelectedFile(null);
+  setSelectedFile([]);
+  setSelectedFileList(false);
 }
 const makezip = (files) =>{
-  if(selectedFile===null){
+  if(selectedFile.length===0){
     Open('modalOpen');
   }else{
     setdownloadBtnTxt('Please wait...');
@@ -143,34 +145,63 @@ const makezip = (files) =>{
             </div>
           </div>
           <div className='col-sm col-lg-8'>
-            <p className='fs-1 bold text-white'>Fastest online zipping tool..</p>
-            <p className='fs-4 text-white'>
-              MyZip is totally free online zip tool, you can create multiple files and folders zip from here within a seconds. But now limitation is you can only zip here upto 2gb of total folders or files. We continuously working on it to solve the limitations. 
-            </p>
-            <p className='text-white fs-4'>
-            Connect Me:<a href='https://www.linkedin.com/in/rajesh-kumar-paul-python-developer/' ><i class=" ms-3 text-white fs-4 bi bi-linkedin"></i></a>
-            </p>
+            <div className={selectedFileList ? 'd-none': null }>
+              <p className='fs-1 bold text-white'>Fastest online zipping tool..</p>
+              <p className='fs-4 text-white'>
+                MyZip is totally free online zip tool, you can create multiple files and folders zip from here within a seconds. But now limitation is you can only zip here upto 2gb of total folders or files. We continuously working on it to solve the limitations. 
+              </p>
+              <p className='text-white fs-4'>
+              Connect Me:<a href='https://www.linkedin.com/in/rajesh-kumar-paul-python-developer/' ><i className=" ms-3 text-white fs-4 bi bi-linkedin"></i></a>
+              </p>
+            </div>
+            <div style={{'height':'400px'}} className={selectedFileList ? 'overflow-auto' : 'd-none'}>
+            <table className="table table-striped table-primary rounded-3">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th scope="col-10">File Name</th>
+                  <th scope="col-2">Path</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                {selectedFile.map(( listValue, index ) => {
+                  return (
+                    <tr key={index}>
+                      <td><input type='checkbox' /></td>
+                      <td >{listValue.name}</td>
+                      
+                      <td >{listValue.webkitRelativePath}</td>
+                    </tr>
+                  );
+                })}
+                
+                
+              </tbody>
+            </table>
+            </div>
+            
           </div>
           
           
         </div>
       </div>
       
-      <button type="button" style={{ display: 'none' }} class="btn btn-primary" id='modalOpen' data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      <button type="button" style={{ display: 'none' }} className="btn btn-primary" id='modalOpen' data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         Launch static backdrop modal
       </button>
 
 
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
+      <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
               
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <div className='text-center'>
-                <img className='sadface' src={sadface} />
+                <img alt='' className='sadface' src={sadface} />
               </div>
               <div className=' mb-5 text-center'>
                 <p className='fs-3 bold'> Sorry!</p>
