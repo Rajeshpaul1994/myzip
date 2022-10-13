@@ -175,8 +175,6 @@ const makezip = (files) =>{
                     </tr>
                   );
                 })}
-                
-                
               </tbody>
             </table>
             </div>
