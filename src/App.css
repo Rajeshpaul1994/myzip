@@ -92,3 +92,15 @@
 ::placeholder{
   color:#fff;
 }
+.input-box:focus-visible{
+  outline: none;
+  border-bottom: 1px solid #fff;
+  border-top: none;
+  border-right:none;
+  border-left:none;
+
+}
+.link-to-login{
+  text-decoration: none;
+  color:#fff;
+}
