@@ -5,6 +5,8 @@ import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import sadface from './images/sad-face-emoji.gif';
 import Home from './components/Home';
+import LoginPage from './components/LoginPage';
+
 function App() {
 
   return (
@@ -19,7 +21,7 @@ function App() {
           <div className='col-sm'></div>
         </div>
       </div>
-      <Home />
+      <LoginPage />
     </div>
   );
 }

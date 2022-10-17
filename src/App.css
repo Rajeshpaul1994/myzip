@@ -73,3 +73,22 @@
 .space-50{
   margin-top: 50px;
 }
+.login-form-div{
+  max-width: 400px;
+  background-color: #ffffff66;
+  padding:20px;
+  border-radius: 10px;
+  
+}
+.input-box{
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  background-color: transparent;
+  border: 0px 0px 0px 0px;
+  border-bottom: 1px solid #fff;
+  color:#fff;
+}
+::placeholder{
+  color:#fff;
+}
