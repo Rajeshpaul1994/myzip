@@ -1,28 +1,47 @@
 import logo from './images/myzip-logo.png';
 import './App.css';
+import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
 import React ,{useState} from 'react';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import sadface from './images/sad-face-emoji.gif';
 import Home from './components/Home';
 import LoginPage from './components/LoginPage';
+import ContactPage from './components/ContactPage';
 
 function App() {
 
   return (
+    <Router>
     <div  className="main">
       <div className='container'>
         <div className='row'>
-          <div className='col-sm'>
+          <div className='col-sm col-lg-4'>
             <img src={logo} className='zip-karo-logo' alt='myzip-logo' />
           </div>
-          <div className='col-sm'></div>
-          <div className='col-sm'></div>
-          <div className='col-sm'></div>
+          <div className='col-sm col-lg-8'>
+            <ul className="nav justify-content-end mt-3">
+              <li className='nav-item'>
+                <Link className='nav-link text-white fs-5' to="/">Home</Link>
+              </li>
+              <li className='nav-item'>
+                <Link className='nav-link text-white fs-5' to="/contact">Contact Us</Link>
+              </li>
+              <li className='nav-item'>
+                <Link className='nav-link text-white fs-5 login-btn-nav btn btn-primary' to="/login">Login</Link>
+              </li>
+            </ul>
+          </div>
+          
         </div>
       </div>
-      <LoginPage />
+      <Routes>
+        <Route exact path='/' element={< Home />}></Route>
+        <Route exact path='/contact' element={< ContactPage />}></Route>
+        <Route exact path='/login' element={< LoginPage />}></Route>
+      </Routes>
     </div>
+    </Router>
   );
 }
 
