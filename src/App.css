@@ -40,7 +40,7 @@
   height: 100vh;
   width: 100%;
   /*background-color: #0f2537;*/
-  background-image: url('./images/myzip-bg-online-zip-tool.png');
+  background-image: url('./images/myzip-bg-online-zip-tool.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -53,6 +53,9 @@
 
 .space-100{
   height: 100px;
+}
+.space-150{
+  height: 150px;
 }
 .drop-zone{
   border: 1px dashed #fff;
@@ -104,4 +107,7 @@
 .link-to-login{
   text-decoration: none;
   color:#fff;
+}
+.navbar-myzip{
+  background-color: #235390;
 }

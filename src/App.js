@@ -8,12 +8,14 @@ import sadface from './images/sad-face-emoji.gif';
 import Home from './components/Home';
 import LoginPage from './components/LoginPage';
 import ContactPage from './components/ContactPage';
+import LandingPage from './components/LandingPage';
 
 function App() {
 
   return (
     <Router>
     <div  className="main">
+      <div className='navbar-myzip'>
       <div className='container'>
         <div className='row'>
           <div className='col-sm col-lg-4'>
@@ -21,22 +23,27 @@ function App() {
           </div>
           <div className='col-sm col-lg-8'>
             <ul className="nav justify-content-end mt-3">
-              <li className='nav-item'>
+            <li className='nav-item'>
                 <Link className='nav-link text-white fs-5' to="/">Home</Link>
+              </li>
+              <li className='nav-item'>
+                <Link className='nav-link text-white fs-5' to="/zip-tool">Zip Tool</Link>
               </li>
               <li className='nav-item'>
                 <Link className='nav-link text-white fs-5' to="/contact">Contact Us</Link>
               </li>
               <li className='nav-item'>
-                <Link className='nav-link text-white fs-5 login-btn-nav btn btn-primary' to="/login">Login</Link>
+                <Link className='nav-link text-white fs-5 login-btn-nav' to="/login">Login</Link>
               </li>
             </ul>
           </div>
           
         </div>
       </div>
+      </div>
       <Routes>
-        <Route exact path='/' element={< Home />}></Route>
+      <Route exact path='/' element={< LandingPage />}></Route>
+        <Route exact path='/zip-tool' element={< Home />}></Route>
         <Route exact path='/contact' element={< ContactPage />}></Route>
         <Route exact path='/login' element={< LoginPage />}></Route>
       </Routes>
