@@ -81,6 +81,24 @@ const resetAll = () =>{
   setSelectedFile([]);
   setSelectedFileList(false);
 }
+const removeListItem = (e) =>{
+  //const index = selectedFile.indexOf(e);
+  //console.log(index);
+  
+     var v = selectedFile.splice(e, 1); // 2nd parameter means remove one item only
+    const newarr = selectedFile;
+    setSelectedFile(newarr);
+    setlength_file_array(newarr.length);
+    console.log(v);
+    console.log(selectedFile);
+    //alert(e+' removed');
+    //const newList = selectedFile.filter((item) => item[id] !== id);
+
+    //setSelectedFile(newList);
+  
+  
+
+}
 const makezip = (files) =>{
   if(selectedFile.length===0){
     Open('modalOpen');
@@ -150,9 +168,10 @@ const makezip = (files) =>{
           <table className="table table-striped table-primary rounded-3">
             <thead>
               <tr>
-                <th></th>
+                <th>No.</th>
                 <th scope="col-10">File Name</th>
                 <th scope="col-2">Path</th>
+                <th></th>
                 
               </tr>
             </thead>
@@ -160,10 +179,11 @@ const makezip = (files) =>{
               {selectedFile.map(( listValue, index ) => {
                 return (
                   <tr key={index}>
-                    <td><input type='checkbox' /></td>
+                    <td>{index+1}</td>
                     <td >{listValue.name}</td>
                     
                     <td >{listValue.webkitRelativePath}</td>
+                    <td><button onClick={()=>removeListItem(index)}><i  class="bi bi-x-circle"></i></button></td>
                   </tr>
                 );
               })}
