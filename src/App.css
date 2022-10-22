@@ -57,6 +57,12 @@
 .space-150{
   height: 150px;
 }
+.ubuntu{
+  font-family: 'ubuntu';
+}
+.f-700{
+  font-weight: 700;
+}
 .drop-zone{
   border: 1px dashed #fff;
   border-radius: 20px;
@@ -110,4 +116,16 @@
 }
 .navbar-myzip{
   background-color: #235390;
+}
+.mybtn-getstrted{
+  padding:12px 100px;
+  border-radius: 10px;
+  font-family: 'ubuntu';
+  font-weight: 600;
+  width: 430px;
+  border:none;
+  letter-spacing: 0.2px;
+}
+.landing-page-ico{
+  animation: App-logo-spin infinite 20s linear;
 }
