@@ -164,11 +164,11 @@ const makezip = (files) =>{
             Connect Me:<a href='https://www.linkedin.com/in/rajesh-kumar-paul-python-developer/' ><i className=" ms-3 text-white fs-4 bi bi-linkedin"></i></a>
             </p>
           </div>
-          <div style={{'height':'400px'}} className={selectedFileList ? 'overflow-auto' : 'd-none'}>
+          <div id='style-4' style={{'height':'500px'}} className={selectedFileList ? 'overflow-auto' : 'd-none'}>
           <table className="table table-striped table-primary rounded-3">
             <thead>
               <tr>
-                <th>No.</th>
+                
                 <th scope="col-10">File Name</th>
                 <th scope="col-2">Path</th>
                 <th></th>
@@ -179,11 +179,11 @@ const makezip = (files) =>{
               {selectedFile.map(( listValue, index ) => {
                 return (
                   <tr key={index}>
-                    <td>{index+1}</td>
-                    <td >{listValue.name}</td>
+                    
+                    <td ><i class="bi bi-file-earmark"></i> {listValue.name}</td>
                     
                     <td >{listValue.webkitRelativePath}</td>
-                    <td><button onClick={()=>removeListItem(index)}><i  class="bi bi-x-circle"></i></button></td>
+                    <td><button className='bg-transparent cross-btn' onClick={()=>removeListItem(index)}><i  class="bi bi-x-circle"></i></button></td>
                   </tr>
                 );
               })}

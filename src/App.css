@@ -83,6 +83,9 @@
 .space-50{
   margin-top: 50px;
 }
+.space-75{
+  margin-top: 75px;
+}
 .login-form-div{
   max-width: 400px;
   background-color: #ffffff66;
@@ -128,4 +131,58 @@
 }
 .landing-page-ico{
   animation: App-logo-spin infinite 20s linear;
+}
+.cross-btn{
+  border:none;
+}
+#style-4{
+  padding-bottom: 0px;
+}
+
+#style-4::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar-thumb
+{
+	background-color: #9f9e9e;
+	border: 2px solid #ababab;
+  border-radius: 10px;
+}
+.myzip-ip-box{
+  width: 400px;
+  padding: 10px;
+  border-radius: 10px;
+  border:none;
+}
+.myzip-ip-box::placeholder{
+  color:#235390;
+}
+.myzip-textarea::placeholder{
+  color:#235390;
+}
+.myzip-textarea{
+  width: 400px;
+  padding: 10px;
+  border-radius: 10px;
+  border:none;
+  height: 100px;
+}
+.myzip-send-messege{
+  padding:12px 100px;
+  border-radius: 10px;
+  font-family: 'ubuntu';
+  font-weight: 600;
+  width: 400px;
+  border:none;
+  letter-spacing: 0.2px;
+  color:#235390;
 }
