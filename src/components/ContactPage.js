@@ -17,12 +17,9 @@ export default function ContactPage() {
     setButtonDisable(true);
     if(sendername !='' && senderemail !='' && sendermsg !=''){
       const requestOptions = {
-        mode: 'no-cors',
         method: 'POST',
-        headers: { 'Content-Type': 'application/json',
-        'Accept': 'application/json, text/plain, */*',
-      },
-        body: { name: sendername, email:senderemail, msg:sendermsg }
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ name: sendername, email:senderemail, msg:sendermsg })
         };
         fetch('https://apis.myzip.in/send-contact-form/', requestOptions)
             .then(response => response.json())
