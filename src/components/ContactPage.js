@@ -3,6 +3,8 @@ import zipico from '../images/zip-icon-for-landing-page.png';
 import axios from 'axios';
 
 export default function ContactPage() {
+
+  
   const [sendername , setName] = useState('');
   const [senderemail, setEmail] = useState('');
   const [sendermsg, setMsg] = useState('');
@@ -16,10 +18,14 @@ export default function ContactPage() {
     e.preventDefault();
     setButtonDisable(true);
     if(sendername !='' && senderemail !='' && sendermsg !=''){
+      const formData = new FormData();
+      formData.append('name', sendername);
+      formData.append('email', senderemail);
+      formData.append('msg', sendermsg);
       const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({ name: sendername, email:senderemail, msg:sendermsg })
+        //headers: { 'Content-Type': 'application/json'},
+        body: formData //JSON.stringify({ name: sendername, email:senderemail, msg:sendermsg })
         };
         fetch('https://apis.myzip.in/send-contact-form/', requestOptions)
             .then(response => response.json())
@@ -30,8 +36,12 @@ export default function ContactPage() {
     }
   }
   const HandleAfterSubmit = () =>{
+    console.log('nnnnnnnnnn');
     setButtonDisable(false);
     setSuccessMsg(true);
+    setEmail('');
+    setMsg('');
+    setName('');
   } 
   return (
     <div>
@@ -48,26 +58,35 @@ export default function ContactPage() {
               <div className='mt-3 text-center'>
                 <form>
                 <div>
-                  <input type='text' className='myzip-ip-box mb-3' onChange={HandleChangeName} placeholder='Your Name' required />
+                  <input type='text' className='myzip-ip-box mb-3' onChange={HandleChangeName} value={sendername} placeholder='Your Name' required />
                 </div>
                 <div>
-                  <input type='text' className='myzip-ip-box mb-3' onChange={HandleChangeEmail} placeholder='Your Email ID' required />
+                  <input type='text' className='myzip-ip-box mb-3' onChange={HandleChangeEmail} value={senderemail} placeholder='Your Email ID' required />
                 </div>
                 <div>
-                  <textarea className='myzip-textarea mb-3' onChange={HandleChangeMsg} placeholder='Your Message'  required></textarea>
+                  <textarea className='myzip-textarea mb-3' onChange={HandleChangeMsg} placeholder='Your Message' value={sendermsg}  required></textarea>
                 </div>
                 
                 <button className='bg-warning myzip-send-messege' disabled={buttonDisable} type='submit' onClick={SendMsg}>Send Message 
-                  &nbsp;<span className={buttonDisable? null : 'd-none'}><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></span>
+                  &nbsp;<span className={buttonDisable? null : 'd-none'}><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></span>
                 </button>
+                <div className={successMsg ? null : 'd-none'}>
+                  <div className='text-center mt-3'>
+                    <span className='success-field pe-5 ps-5 text-white'>
+                      Message successfully sent...
+                    </span>
+                  </div>
+                </div>
+                
+                
                 </form>
               </div>
               <div className='mt-5 text-center'>
                 <div>
                   <p className='text-white'>Connect</p>
-                  <a className='text-white me-3' href='https://github.com/Rajeshpaul1994'><i class="bi bi-github fs-3"></i></a>
-                  <a className='text-white me-3' href='https://www.linkedin.com/in/rajesh-kumar-paul-python-developer/'><i class="bi bi-linkedin fs-3"></i></a>
-                  <a className='text-white me-3' href='https://twitter.com/rajesh_myzip'><i class="bi bi-twitter fs-3"></i></a>
+                  <a className='text-white me-3' href='https://github.com/Rajeshpaul1994'><i className="bi bi-github fs-3"></i></a>
+                  <a className='text-white me-3' href='https://www.linkedin.com/in/rajesh-kumar-paul-python-developer/'><i className="bi bi-linkedin fs-3"></i></a>
+                  <a className='text-white me-3' href='https://twitter.com/rajesh_myzip'><i className="bi bi-twitter fs-3"></i></a>
                 </div>
               </div>
 

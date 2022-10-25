@@ -186,3 +186,10 @@
   letter-spacing: 0.2px;
   color:#235390;
 }
+.success-field{
+  background-color: #2ca55a;
+  padding: 5px 10px;
+  margin: 25px;
+  width: 400px;
+  transition: 0.5s;
+}

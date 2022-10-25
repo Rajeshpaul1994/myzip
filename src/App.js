@@ -33,7 +33,7 @@ function App() {
                 <Link className='nav-link text-white fs-5' to="/contact">Contact Us</Link>
               </li>
               <li className='nav-item'>
-                <Link className='nav-link text-white fs-5 login-btn-nav' to="/login">Login</Link>
+                <Link className='nav-link text-white fs-5 login-btn-nav d-none' to="/login">Login</Link>
               </li>
             </ul>
           </div>
