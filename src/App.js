@@ -9,6 +9,7 @@ import Home from './components/Home';
 import LoginPage from './components/LoginPage';
 import ContactPage from './components/ContactPage';
 import LandingPage from './components/LandingPage';
+import QRtoolsPage from './components/QRtoolsPage';
 
 function App() {
 
@@ -30,6 +31,9 @@ function App() {
                 <Link className='nav-link text-white fs-5' to="/zip-tool">Zip Tool</Link>
               </li>
               <li className='nav-item'>
+                <Link className='nav-link text-white fs-5' to="/qr-tool">QR Tool</Link>
+              </li>
+              <li className='nav-item'>
                 <Link className='nav-link text-white fs-5' to="/contact">Contact Us</Link>
               </li>
               <li className='nav-item'>
@@ -44,6 +48,7 @@ function App() {
       <Routes>
       <Route exact path='/' element={< LandingPage />}></Route>
         <Route exact path='/zip-tool' element={< Home />}></Route>
+        <Route exact path='/qr-tool' element={< QRtoolsPage />}></Route>
         <Route exact path='/contact' element={< ContactPage />}></Route>
         <Route exact path='/login' element={< LoginPage />}></Route>
       </Routes>

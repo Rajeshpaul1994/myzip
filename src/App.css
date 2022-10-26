@@ -193,3 +193,18 @@
   width: 400px;
   transition: 0.5s;
 }
+.qr-input{
+  width:430px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  border: none;
+}
+.qr-input::placeholder{
+  color:#235390;
+}
+.qr-box{
+  background-color: #fff;
+  padding: 20px;
+  width: 340px;
+}
